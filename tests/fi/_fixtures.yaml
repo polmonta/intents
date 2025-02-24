@@ -17,8 +17,43 @@ areas:
 
   - name: "Sauna"
     id: "sauna"
+
+  - name: "Ullakko"
+    id: "attic"
+
+  - name: "Yläkerta"
+    id: "upstairs"
+
 entities:
-  - name: "Makuuhuoneen valo"
+  - name: "Kattokruunu"
+    id: "light.ylakerta"
+    area: "upstairs"
+    state:
+      in: "päällä"
+      out: "on"
+
+  - name: "Eteisen Lamppu"
+    id: "light.entrance"
+    area: "entrance"
+    state:
+      in: "pois"
+      out: "off"
+
+  - name: "Tuikku"
+    id: "light.ullakko"
+    area: "attic"
+    state:
+      in: "pois"
+      out: "off"
+
+  - name: "Vipu"
+    id: "switch.entrance"
+    area: "entrance"
+    state:
+      in: "pois"
+      out: "off"
+
+  - name: "Makuuhuoneen pikkulamppu"
     id: "light.bedroom_lamp"
     area: "bedroom"
     state:
@@ -39,7 +74,7 @@ entities:
       in: "päällä"
       out: "on"
 
-  - name: "Keittiön työpöytä"
+  - name: "Työpöytä"
     id: "light.kitchen_countertop"
     area: "kitchen"
     state:
@@ -63,6 +98,13 @@ entities:
   - name: "Kattotuuletin"
     id: "fan.ceiling"
     area: "living_room"
+    state:
+      in: "pois"
+      out: "off"
+
+  - name: "Kattopuhallin"
+    id: "fan.attic"
+    area: "attic"
     state:
       in: "pois"
       out: "off"
@@ -108,7 +150,7 @@ entities:
       in: "päällä"
       out: "on"
 
-  - name: "Autotallin valo"
+  - name: "Autotallin kattovalo"
     id: "light.garage"
     area: "garage"
     state:
@@ -125,9 +167,9 @@ entities:
   - name: "Termostaatti"
     id: "climate.thermostat"
     area: "living_room"
-    state: "20"
+    state: "heat"
     attributes:
-      unit_of_measurement: "°C"
+      current_temperature: 20
 
   - name: "Etuovi"
     id: "lock.front_door"
@@ -229,8 +271,8 @@ entities:
     attributes:
       device_class: heat
 
-  - name: "Valo"
-    id: "binary_sensor.light"
+  - name: "Valoisuus"
+    id: "binary_sensor.light_lux"
     state:
       in: "ei valoa"
       out: "off"
@@ -377,3 +419,69 @@ entities:
       out: "on"
     attributes:
       device_class: window
+
+  - name: "Helsinki"
+    id: "weather.helsinki"
+    state: "Vesisadetta"
+    attributes:
+      temperature: "15"
+      temperature_unit: "°C"
+
+  - name: "Oulu"
+    id: "weather.oulu"
+    state: "Aurinkoista"
+    attributes:
+      temperature: "30"
+      temperature_unit: "°C"
+
+  - name: "Rautakauppa"
+    id: "todo.rautakauppa"
+    state: ""
+
+  - name: "Pääventtiili"
+    id: "valve.main_valve"
+    state: "open"
+    attributes:
+      position: "100"
+
+  - name: "TV"
+    id: "media_player.tv"
+    state: "idle"
+    attributes:
+      volume_level: "50"
+
+  - name: "Rover"
+    id: "vacuum.rover"
+    state: "idle"
+
+  - name: "Vahvistin"
+    id: "media_player.vahvistin"
+    state: "playing"
+    attributes:
+      volume_level: "70"
+
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: "pizza"
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: "kitchen"
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
+  - area: "attic"
+    start_minutes: 15
+    total_seconds_left: 120
+    rounded_hours_left: 0
+    rounded_minutes_left: 2
+    rounded_seconds_left: 0

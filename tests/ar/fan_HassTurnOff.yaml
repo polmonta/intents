@@ -9,7 +9,7 @@ tests:
         area: غرفة النوم
         domain: fan
         name: all
-    response: "تم اطفاء المراوح"
+    response: "تم إطفاء المراوح"
 
   - sentences:
       - طفي جميع المراوح
@@ -17,7 +17,6 @@ tests:
     intent:
       name: HassTurnOff
       slots:
-        area: all
         domain: fan
         name: all
-    response: "تم اطفاء جميع المراوح"
+    response: "تم إطفاء جميع المراوح"

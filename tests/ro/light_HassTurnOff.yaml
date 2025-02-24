@@ -35,11 +35,26 @@ tests:
         domain: light
     response: "Am stins luminile"
   - sentences:
-      - "opreste lumina"
+      - "stinge lumina"
+      - "opreste lumina aici"
+      - "opreste toate luminile"
+      - "stinge toate luminile de aici"
+    intent:
+      name: HassTurnOff
+      context:
+        area: Dormitor
+      slots:
+        domain: light
+        area: Dormitor
+    response: "Am stins luminile"
+  - sentences:
+      - "stinge lumina de la primul etaj"
+      - "oprește lumina la primul etaj"
+      - "stop luminile din primul etaj"
+      - "stinge toate luminile de la primul etaj"
     intent:
       name: HassTurnOff
       slots:
+        floor: Primul etaj
         domain: light
-      context:
-        area: bedroom
     response: "Am stins luminile"

@@ -1,11 +1,20 @@
 language: uk
+floors:
+  - name: "Перш(ий|ому) повер(х|сі)"
+    id: first_floor_id
+  - name: "Друг(ий|ому) повер(х|сі)"
+    id: second_floor_id
+
 areas:
   - name: Кухн(я|і)
     id: kitchen
+    floor: first_floor_id
   - name: Вітальн(я|і)
     id: living_room
+    floor: first_floor_id
   - name: Спальн(я|і)
     id: bedroom
+    floor: second_floor_id
   - name: Гараж[і]
     id: garage
 
@@ -81,15 +90,76 @@ entities:
     state: "open"
     attributes:
       device_class: curtain
+      position: "50"
   - name: Прав(а|у) штор(а|у)
     id: "cover.curtain_right"
     area: "living_room"
     state: "closed"
     attributes:
       device_class: curtain
+      position: "0"
   - name: "Штори спальні"
     id: "cover.bedroom"
     area: "bedroom"
     state: "closed"
     attributes:
       device_class: curtain
+
+  - name: Завдання
+    id: "todo.tasks"
+    state: ""
+
+  - name: Прибирання
+    id: "script.cleaning"
+  - name: Почати прання
+    id: "script.start_washing"
+
+  - name: "Вдома"
+    id: "weather.home"
+    state: "clear"
+    attributes:
+      temperature: "22"
+      temperature_unit: "°C"
+
+  - name: "Ки(їв|єві)"
+    id: "weather.kyiv"
+    state: "rainy"
+    attributes:
+      temperature: "12"
+      temperature_unit: "°C"
+
+  - name: Головний вентиль
+    id: "valve.main_valve"
+    state: "close"
+    attributes:
+      position: "100"
+
+  - name: "Пилосос"
+    id: "vacuum.rover"
+    state: "idle"
+
+  - name: "Телевізор[а|у|і]"
+    id: "media_player.tv"
+    state: "idle"
+    attributes:
+      volume_level: "50"
+
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: "піцца"
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: "вітальня"
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
