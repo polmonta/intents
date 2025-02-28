@@ -3,8 +3,8 @@ responses:
   errors:
     no_intent: "죄송합니다, 이해하지 못했습니다"
     no_area: "{{ area }}이라는 영역을 찾을 수 없습니다"
-    no_domain: "{{ area }}에서 {{ domain }}을 찾을 수 없습니다"
-    no_device_class: "{{ area }}에서 {{ device_class }}을 찾을 수 없습니다"
+    no_domain_in_area: "{{ area }}에서 {{ domain }}을 찾을 수 없습니다"
+    no_device_class_in_area: "{{ area }}에서 {{ device_class }}을 찾을 수 없습니다"
     no_entity: "{{ entity }}이라는 구성요소나 기기를 찾을 수 없습니다"
     handle_error: "의도를 처리하는 동안 예기치 않은 오류가 발생했습니다"
 lists:
@@ -42,14 +42,6 @@ lists:
       type: "temperature"
       from: 0
       to: 100
-  temperature_unit:
-    values:
-      - "celsius"
-      - in: "(섭씨|°C|℃|도)"
-        out: "celsius"
-      - "fahrenheit"
-      - in: "(화씨|°F|℉)"
-        out: "fahrenheit"
   brightness_level:
     values:
       - in: "(최대|가장 밝게|최대치|제일 밝게)"
@@ -297,6 +289,9 @@ lists:
       - in: "(닫힘|닫혀)"
         out: "closed"
 
+  shopping_list_item:
+    wildcard: true
+
 expansion_rules:
   name: "{name}"
   area: "{area}"
@@ -305,7 +300,7 @@ expansion_rules:
   light: "(조명|전등|등|불)"
   turn: "(전원|스위치)"
   temp: "온도"
-  temperature: "{temperature}[ ][°|도][ ][{temperature_unit}]"
+  temperature: "{temperature}[ ][°|도]"
   open: "(열기|열어|열어줘|올리기|올려|올려줘|걷기|걷어|걷어줘)"
   close: "(닫기|닫아|닫아줘|내리기|내려|내려줘|쳐|쳐줘)"
   set: "(설정|맞춰|변경)"
