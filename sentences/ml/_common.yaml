@@ -3,8 +3,8 @@ responses:
   errors:
     no_intent: "ക്ഷമിക്കണം, എനിക്ക് അത് മനസ്സിലായില്ല"
     no_area: "{{ area }} എന്ന പേരുള്ള ഇടമില്ല"
-    no_domain: "{{ area }} എന്നിടത്ത് ഒരു {{ domain }} അടങ്ങിയിട്ടില്ല"
-    no_device_class: "{{ area }} ഇൽ ഒരു {{ device_class }} അടങ്ങിയിട്ടില്ല"
+    no_domain_in_area: "{{ area }} എന്നിടത്ത് ഒരു {{ domain }} അടങ്ങിയിട്ടില്ല"
+    no_device_class_in_area: "{{ area }} ഇൽ ഒരു {{ device_class }} അടങ്ങിയിട്ടില്ല"
     no_entity: "{{ entity }} എന്ന് പേരുള്ള ഉപകരണമോ എന്റിറ്റിയോ ഇല്ല"
     handle_error: "ഇന്റന്റ് കൈകാര്യം ചെയ്യുമ്പോൾ അപ്രതീക്ഷിതമായ ഒരു പിശക് സംഭവിച്ചു"
 lists:
@@ -38,14 +38,6 @@ lists:
       type: "temperature"
       from: 0
       to: 100
-  temperature_unit:
-    values:
-      - "celsius"
-      - in: "c|സെ(ൽഷ്യസ്|ന്റിഗ്രേഡ്)"
-        out: "celsius"
-      - "fahrenheit"
-      - in: "f|ഫാറൻ(ഹീറ്റ്|ഹൈറ്റ്)"
-        out: "fahrenheit"
 expansion_rules:
   all: "(എല്ലാ|മുഴുവൻ|സർവ്വ|സകല)"
   the: "(ഈ|ആ)"
@@ -85,7 +77,7 @@ expansion_rules:
   # താപനില
   temp: "(താപനില|ചൂടുനില|ചൂട്|തണുപ്പ്)"
   # താപനില_അളവ്
-  temperature: "{temperature}[°| ഡിഗ്രി| ഡിഗ്രീസ്] [{temperature_unit}]"
+  temperature: "{temperature}[°| ഡിഗ്രി| ഡിഗ്രീസ്]"
   # പങ്ക
   # fan: "(ഫാ(ൻ|നും|നുകളും)|വിശ(റി|റിയും|റികളും)|പങ്ക(യും|കൾ|കളും)|പാറ്റൽ യ(ന്ത്രം|ന്ത്രങ്ങളും))"
   fan: "(ഫാൻ|ഫാനും|വിശറി|വിശറിയും|പങ്ക|പങ്കയും|പാറ്റൽ യന്ത്രം|പാറ്റൽ യന്ത്രവും)"

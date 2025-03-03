@@ -7,4 +7,4 @@ tests:
       slots:
         area: Cozinha
         domain: fan
-        name: all
+    response: "Ventoinhas ligadas"

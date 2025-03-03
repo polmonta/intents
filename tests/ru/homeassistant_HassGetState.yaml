@@ -9,22 +9,30 @@ tests:
     response: "Температура на улице 15 °C"
 
   - sentences:
+      - Что с кухонный стол?
+    intent:
+      name: HassGetState
+      slots:
+        name: "Кухонный стол"
+    response: "Включено"
+
+  - sentences:
       - Что с лампа в гостиной?
     intent:
       name: HassGetState
       slots:
         name: "Лампа в гостиной"
-    response: "Лампа в гостиной включен"
+    response: "Лампа в гостиной включена"
 
   - sentences:
-      - "Лампа в спальне включена?"
-      - "Включена ли лампа в спальне?"
+      - "Ночная лампа включена?"
+      - "Включена ли ночная лампа?"
     intent:
       name: HassGetState
       slots:
-        name: "Лампа в спальне"
-        state: "включен"
-    response: "Нет, выключен"
+        name: "Ночная лампа"
+        state: "on"
+    response: "Нет, выключена"
 
   - sentences:
       - "Есть ли включенные выключатели на кухне?"
@@ -37,7 +45,7 @@ tests:
           - Кухне
           - Кухонный
         domain: "switch"
-        state: "включен"
+        state: "on"
     response: "Да, Кухонный выключатель"
 
   - sentences:
@@ -47,7 +55,7 @@ tests:
       name: HassGetState
       slots:
         domain: "switch"
-        state: "включен"
+        state: "on"
     response: "Выключатель в спальне — нет"
 
   - sentences:
@@ -57,7 +65,7 @@ tests:
       name: HassGetState
       slots:
         domain: "light"
-        state: "выключен"
+        state: "off"
     response: "Верхний свет в кухне, Игровой уголок, Кухонные шкафчики и ещё 3 — нет"
 
   - sentences:
@@ -66,7 +74,7 @@ tests:
       name: HassGetState
       slots:
         domain: "light"
-        state: "включен"
+        state: "on"
     response: "Верхний свет в кухне, Игровой уголок, Кухонные шкафчики и ещё 3"
 
   - sentences:
@@ -76,5 +84,16 @@ tests:
       name: HassGetState
       slots:
         domain: "light"
-        state: "включен"
+        state: "on"
     response: "6"
+
+  - sentences:
+      - "Сколько в кухне включенных ламп?"
+    intent:
+      name: HassGetState
+      slots:
+        area:
+          - "Кухне"
+        domain: "light"
+        state: "on"
+    response: "3"

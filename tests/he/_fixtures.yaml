@@ -83,6 +83,24 @@ entities:
   - name: "Thermostat"
     id: "climate.thermostat"
     area: "living_room"
-    state: "68"
+    state: "heat"
     attributes:
-      unit_of_measurement: "°F"
+      current_temperature: 68
+
+  - name: "קניות"
+    id: "todo.trader_joes"
+    state: ""
+
+  - name: "London"
+    id: "weather.london"
+    state: "rainy"
+    attributes:
+      temperature: "47"
+      temperature_unit: "°F"
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
