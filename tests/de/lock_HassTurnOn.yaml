@@ -3,6 +3,7 @@ tests:
   - sentences:
       - "schließe die Haustür zu"
       - "mach die Haustür zu"
+      - "macht die Haustür zu"
       - "sperre die Haustür zu"
       - "schließe die Haustür ab"
       - "sperre die Haustür ab"
@@ -49,7 +50,6 @@ tests:
       name: HassTurnOn
       context:
         domain: lock
-        name: all
       slots:
         area: Flur
     response: abgeschlossen

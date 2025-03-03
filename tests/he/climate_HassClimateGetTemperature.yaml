@@ -1,18 +1,23 @@
 language: he
 tests:
   - sentences:
-      - ?מה הטמפרטורה
+      - מה הטמפרטורה?
     intent:
       name: HassClimateGetTemperature
+    response: "הטמפרטורה היא 68 מעלות"
+
   - sentences:
       - מה הטמפרטורה בסלון?
     intent:
       name: HassClimateGetTemperature
       slots:
         area: סלון
+    response: "בסלון 68 מעלות"
+
   - sentences:
       - כמה חם בסלון?
     intent:
       name: HassClimateGetTemperature
       slots:
         area: סלון
+    response: "בסלון 68 מעלות"

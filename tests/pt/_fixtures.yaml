@@ -70,6 +70,20 @@ entities:
     attributes:
       device_class: curtain
 
+  - name: "Estores da Sala de Estar"
+    id: "cover.sala"
+    area: "sala_de_estar"
+    state: "open"
+    attributes:
+      device_class: blind
+
+  - name: "Persiana da Cozinha"
+    id: "cover.cozinha"
+    area: "cozinha"
+    state: "closed"
+    attributes:
+      device_class: shutter
+
   - name: "Temperatura exterior"
     id: "sensor.temperatura_exterior"
     area: "garagem"
@@ -85,9 +99,9 @@ entities:
   - name: "Termostato"
     id: "climate.termostato"
     area: "sala_de_estar"
-    state: "19"
+    state: "heat"
     attributes:
-      unit_of_measurement: "°C"
+      current_temperature: 19
 
   - name: "Front Door"
     id: "lock.front_door"
@@ -107,3 +121,52 @@ entities:
 
   - name: "Stealth Mode"
     id: "script.stealth_mode"
+
+  - name: "Braga"
+    id: "weather.braga"
+    state: "rainy"
+    attributes:
+      temperature: "18"
+      temperature_unit: "°C"
+
+  - name: "Porto"
+    id: "weather.porto"
+    state: "clear"
+    attributes:
+      temperature: "19"
+      temperature_unit: "°C"
+
+  - name: "Tarefas"
+    id: "todo.tarefas"
+    state: ""
+
+  - name: "Ambrósio"
+    id: "vacuum.ambrosio"
+    state: "idle"
+
+  - name: "TV do Quarto"
+    id: "media_player.tv_do_quarto"
+    state: "idle"
+    attributes:
+      volume_level: "10"
+    area: "quarto"
+
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: "pizza"
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: "cozinha"
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0

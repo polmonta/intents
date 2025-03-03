@@ -36,10 +36,25 @@ tests:
     response: "Am aprins luminile"
   - sentences:
       - "porneste lumina"
+      - "aprinde lumina aici"
+      - "aprinde toate luminile"
+      - "porneste toate luminile de aici"
+    intent:
+      name: HassTurnOn
+      context:
+        area: Dormitor
+      slots:
+        domain: light
+        area: Dormitor
+    response: "Am aprins luminile"
+  - sentences:
+      - "start lumina de la primul etaj"
+      - "pornește lumina la primul etaj"
+      - "deschide luminile din primul etaj"
+      - "aprinde toate luminile de la primul etaj"
     intent:
       name: HassTurnOn
       slots:
+        floor: Primul etaj
         domain: light
-      context:
-        area: bedroom
     response: "Am aprins luminile"

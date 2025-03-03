@@ -14,10 +14,11 @@ tests:
       - "lock all locks in the kitchen"
       - "lock doors in the kitchen"
       - "lock kitchen doors"
+      - "lock kitchen door"
+      - "lock the door in the kitchen"
     intent:
       name: HassTurnOn
       slots:
         area: Kitchen
         domain: lock
-        name: all
     response: Locked

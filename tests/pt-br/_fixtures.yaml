@@ -1,19 +1,34 @@
 language: pt-br
+floors:
+  - name: "Térreo"
+    id: ground_floor_id
+  - name: "Primeiro andar"
+    id: first_floor_id
+
 areas:
   - name: "Cozinha"
     id: "cozinha"
+    floor: ground_floor_id
 
   - name: "Sala de Estar"
     id: "sala_de_estar"
+    floor: ground_floor_id
 
   - name: "Quarto"
     id: "quarto"
+    floor: first_floor_id
 
   - name: "Garagem"
     id: "garagem"
+    floor: ground_floor_id
 
   - name: "Entrada"
     id: "entrada"
+    floor: ground_floor_id
+
+  - name: "Sala"
+    id: "sala"
+    floor: ground_floor_id
 
 entities:
   - name: "Luz do Quarto"
@@ -41,11 +56,10 @@ entities:
 
   - name: "Ventilador da sala"
     id: "fan.ventilador_sala"
-    area: "sala_de_estar"
+    area: "sala"
 
   - name: "Ventilador de Teto"
     id: "fan.ventilador_de_teto"
-    area: "sala_de_estar"
 
   - name: "Aquecedor Quarto"
     id: "switch.aquecedor_quarto"
@@ -60,6 +74,14 @@ entities:
   - name: "Persiana"
     id: "cover.persinana_entrada"
     area: "entrada"
+    state: "open"
+    attributes:
+      device_class: curtain
+      position: "0"
+
+  - name: "Cortina Esquerda"
+    id: "cover.cortina_esquerda"
+    area: "sala_de_estar"
     state: "open"
     attributes:
       device_class: curtain
@@ -93,9 +115,10 @@ entities:
   - name: "Termostato"
     id: "climate.thermostat"
     area: "sala_de_estar"
-    state: "68"
+    state: "cool"
     attributes:
-      unit_of_measurement: "°F"
+      unit_of_measurement: "°C"
+      current_temperature: 35
 
   - name: "Ar condicionado"
     id: "climate.ac_quarto"
@@ -110,7 +133,7 @@ entities:
     state: "locked"
 
   - name: "Porta dos Fundos"
-    id: "lock.porta _fundos"
+    id: "lock.porta_fundos"
     state: "unlocked"
 
   - name: "Modo festa"
@@ -118,3 +141,91 @@ entities:
 
   - name: "Modo silencioso"
     id: "script.silencioso"
+
+  - name: "Ribeirão Preto"
+    id: "weather.ribeirao_preto"
+    state: "rainy"
+    attributes:
+      temperature: "18"
+      temperature_unit: "°C"
+      untranslated_state: "rainy"
+
+  - name: "São Paulo"
+    id: "weather.sao_paulo"
+    state: "rainy"
+    attributes:
+      temperature: "18"
+      temperature_unit: "°C"
+
+  - name: "Campo Limpo"
+    id: "weather.campo_limpo"
+    state: "clear"
+    attributes:
+      temperature: "19"
+      temperature_unit: "°C"
+
+  - name: "Tarefas"
+    id: "todo.tarefas"
+    state: ""
+
+  - name: "Válvula Principal"
+    id: "valve.valvula_principal"
+    state: "open"
+    attributes:
+      position: "100"
+
+  - name: "TV do Quarto"
+    id: "media_player.tv_do_quarto"
+    state: "idle"
+    attributes:
+      volume_level: "50"
+
+  - name: "TV da Sala"
+    id: "media_player.tv_da_sala"
+    area: "sala"
+    state: "idle"
+    attributes:
+      volume_level: "40"
+
+  - name: "TV"
+    id: "media_player.tv"
+    area: "sala"
+    state: "idle"
+    attributes:
+      volume_level: "40"
+
+  - name: "Eva"
+    id: "vacuum.eva"
+    state: "idle"
+
+  - name: "Luiz"
+    id: "person.luiz"
+    state: "casa"
+
+  - name: "Daniela"
+    id: "person.daniela"
+    state: "Academia"
+
+  - name: "Bernardo"
+    id: "person.bernardo"
+    state: "not_home"
+
+timers:
+  - is_active: false
+    start_hours: 1
+    total_seconds_left: 100
+    rounded_hours_left: 0
+    rounded_minutes_left: 1
+    rounded_seconds_left: 40
+  - name: "pizza"
+    start_minutes: 30
+    total_seconds_left: 1505
+    rounded_hours_left: 0
+    rounded_minutes_left: 25
+    rounded_seconds_left: 0
+  - area: "cozinha"
+    start_minutes: 5
+    total_seconds_left: 190
+    rounded_hours_left: 0
+    rounded_minutes_left: 3
+    rounded_seconds_left: 0
